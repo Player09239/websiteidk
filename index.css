@@ -53,6 +53,11 @@
     margin: 0;
 }
 
+/* body */
+body {
+    background-color: rgb(170, 255, 255);
+}
+
 /* containers */
 #btncontainer {
     position: absolute;

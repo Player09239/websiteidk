@@ -10,6 +10,10 @@ window.onload=function(){
     let upgrade1LevelUI = document.getElementById('upgrade1Level')
     let upgrade1Button = document.getElementById('upgrade1Button')
 
+    breadCounter.textContent = NumberHelper.Format(bread)
+    upgrade1LevelUI.textContent = `Lv. ${window.upgrade1Level}`
+    upgrade1Button.textContent = `Buy | ${NumberHelper.Format(upgrade1Cost)} Bread`
+
     breadBtn.addEventListener("click", () => {
         bread += upgrade1Level
         breadCounter.textContent = NumberHelper.Format(bread)

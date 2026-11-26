@@ -1,7 +1,7 @@
 import NumberHelper from "./utils/number.js"
 import Data from "./utils/data.js"
 
-let upgradeCostMulti = 1.5
+let upgradeCostMulti = 1.15
 
 let upgrade2BreadMulti = 3
 

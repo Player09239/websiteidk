@@ -76,7 +76,7 @@ window.onload=function(){
     showCombo()
 
     breadBtn.addEventListener("click", () => {
-        bread += Math.floor((upgrade1Level + (3 * upgrade2Level)) * (combo + 1)) // 1 bread per click for upgrade1
+        bread += Math.floor((upgrade1Level + (3 * (upgrade2Level - 1))) * (combo + 1)) // 1 bread per click for upgrade1
         breadCounter.textContent = NumberHelper.Format(bread)
         combo += 0.1
         if (combo > 5) {

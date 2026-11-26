@@ -27,10 +27,7 @@
 
 #counterContainer {
     position: absolute;
-    border-radius: 5%;
-    border: 2px solid black;
-    background-color: #e0e0e0;
-    margin: 10px 10px;
+    margin: 10px 40px;
 }
 
 #upgradesContainer {
@@ -69,14 +66,21 @@
 
 #upgrade1Button {
     position: absolute;
-    margin: 30px 10px;
+    margin: 31px 10px;
     width: 55%;
+    border: black 2px solid; 
+    border-radius: 5%;
 }
 
 /* clicks */
 #breadButton:active {
     animation:
         breadButtonIdle 2s linear infinite,
+        buttonClick 1s 1;
+}
+
+#upgrade1Button:active {
+    animation:
         buttonClick 1s 1;
 }
 
@@ -87,10 +91,21 @@
     height: 150px
 }
 
+#breadIcon {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    margin: 0;
+    top: 15%;
+    right: 100%;
+}
+
 /* p */
 #breadCounter {
     position: relative;
-    margin: 10px 20px;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: left;
 }
 
 #upgrade1Name {
@@ -101,6 +116,13 @@
 #upgrade1Level {
     position: absolute;
     margin: 10px 140px;
+}
+
+#upgradesLabel {
+    position: absolute;
+    bottom: 96%;
+    left: 5%;
+    font-size: 20px;
 }
 
 p {

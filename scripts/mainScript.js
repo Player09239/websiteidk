@@ -1,3 +1,5 @@
+import NumberHelper from "./utils/number.js"
+
 let upgrade1CostMulti = 1.5
 
 window.onload=function(){
@@ -9,8 +11,7 @@ window.onload=function(){
 
     breadBtn.addEventListener("click", () => {
         bread += upgrade1Level
-        breadCounter.textContent = `Bread: ${bread}`
-        console.log(`Current amt of bread: ${bread}`)
+        breadCounter.textContent = NumberHelper.Format(bread)
     })
 
     upgrade1Button.addEventListener("click", () => {
@@ -18,12 +19,12 @@ window.onload=function(){
             bread -= upgrade1Cost
             upgrade1Level++
 
-            breadCounter.textContent = `Bread: ${bread}`
+            breadCounter.textContent = NumberHelper.Format(bread)
             upgrade1LevelUI.textContent = `Lv. ${window.upgrade1Level}`
 
             upgrade1Cost = Math.floor(upgrade1Cost * upgrade1CostMulti)
 
-            upgrade1Button.textContent = `Buy | ${upgrade1Cost} Bread`
+            upgrade1Button.textContent = `Buy | ${NumberHelper.Format(upgrade1Cost)} Bread`
         }
     })
 

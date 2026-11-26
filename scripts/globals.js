@@ -7,6 +7,6 @@ window.upgrade2Level = 1
 window.upgrade2Cost = 175
 
 window.upgrade3Level = 1
-window.upgrade3Cost = 440
+window.upgrade3Cost = 300
 
 window.combo = 0

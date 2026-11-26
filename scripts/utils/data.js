@@ -32,7 +32,7 @@ export default class Data {
         upgrade2Cost = data?.upgrades?.upgrade2?.cost || 175
         upgrade2Level = data?.upgrades?.upgrade2?.level || 1
 
-        upgrade3Cost = data?.upgrades?.upgrade3?.cost || 440
+        upgrade3Cost = data?.upgrades?.upgrade3?.cost || 300
         upgrade3Level = data?.upgrades?.upgrade3?.level || 1
     }
 }

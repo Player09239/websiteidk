@@ -30,6 +30,15 @@
     margin: 10px 40px;
 }
 
+#comboContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    margin-inline: auto;
+    transform: translateY(350px);
+}
+
 /* buttons */
 #breadButton {
     position: absolute;
@@ -65,6 +74,11 @@
     margin: 0;
     top: 15%;
     right: 100%;
+}
+
+.combo {
+    height: 30px;
+    width: 30px;
 }
 
 /* p */

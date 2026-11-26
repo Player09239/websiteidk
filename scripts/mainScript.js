@@ -17,6 +17,12 @@ window.onload=function(){
     let upgrade3Button = document.getElementById('upgrade3Button')
     let breadPerSecondCounter = document.getElementById('breadPerSecondCounter')
 
+    let combo1 = document.getElementById('combo1')
+    let combo2 = document.getElementById('combo2')
+    let combo3 = document.getElementById('combo3')
+    let combo4 = document.getElementById('combo4')
+    let combo5 = document.getElementById('combo5')
+
     breadCounter.textContent = NumberHelper.Format(bread)
     upgrade1LevelUI.textContent = `Lv. ${window.upgrade1Level}`
     upgrade1Button.textContent = `Buy | ${NumberHelper.Format(upgrade1Cost)} Bread`
@@ -27,10 +33,57 @@ window.onload=function(){
 
     breadPerSecondCounter.textContent = `${upgrade3Level - 1} Bread per second`
 
+    function showCombo() {
+        if (combo >= 5) {
+            combo1.style.opacity = 1
+            combo2.style.opacity = 1
+            combo3.style.opacity = 1
+            combo4.style.opacity = 1
+            combo5.style.opacity = 1
+        } else if (combo >= 4) {
+            combo1.style.opacity = .5
+            combo2.style.opacity = 1
+            combo3.style.opacity = 1
+            combo4.style.opacity = 1
+            combo5.style.opacity = 1
+        } else if (combo >= 3) {
+            combo1.style.opacity = .5
+            combo2.style.opacity = .5
+            combo3.style.opacity = 1
+            combo4.style.opacity = 1
+            combo5.style.opacity = 1
+        } else if (combo >= 2) {
+            combo1.style.opacity = .5
+            combo2.style.opacity = .5
+            combo3.style.opacity = .5
+            combo4.style.opacity = 1
+            combo5.style.opacity = 1
+        } else if (combo >= 1) {
+            combo1.style.opacity = .5
+            combo2.style.opacity = .5
+            combo3.style.opacity = .5
+            combo4.style.opacity = .5
+            combo5.style.opacity = 1
+        } else if (combo >= 0) {
+            combo1.style.opacity = .5
+            combo2.style.opacity = .5
+            combo3.style.opacity = .5
+            combo4.style.opacity = .5
+            combo5.style.opacity = .5
+        }
+    }
+
+    showCombo()
+
     breadBtn.addEventListener("click", () => {
-        bread += upgrade1Level + (3 * upgrade2Level) // 1 bread per click for upgrade1
+        bread += Math.floor((upgrade1Level + (3 * upgrade2Level)) * (combo + 1)) // 1 bread per click for upgrade1
         breadCounter.textContent = NumberHelper.Format(bread)
-        
+        combo += 0.1
+        if (combo > 5) {
+            combo = 5
+        }
+
+        showCombo()
         Data.Save()
     })
 
@@ -75,7 +128,7 @@ window.onload=function(){
             upgrade3LevelUI.textContent = `Lv. ${upgrade3Level}`
 
             upgrade3Cost = Math.floor(upgrade3Cost * upgradeCostMulti)
-            
+
             breadPerSecondCounter.textContent = `${upgrade3Level - 1} Bread per second`
             upgrade3Button.textContent = `Buy | ${NumberHelper.Format(upgrade3Cost)} Bread`
 

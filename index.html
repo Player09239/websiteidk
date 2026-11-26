@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="index.js"></script>
-        <link rel="stylesheet" href="index.css">
+        <script src="scripts/index.js"></script>
+        <script src="scripts/globals.js"></script>
+        <link rel="stylesheet" href="styles.css">
+        <title>BREAD CLICKER >:D</title>
     </head>
     <body>
-        <div id="countercontainer">
-            <div id="countericon"></div>
-            <h1 id="txt">0</h1>
+        <div id="buttonContainer">
+            <button id="breadButton">
+                <img src="bread.png" id="breadImage">
+            </button>
         </div>
-        <div id="btncontainer">
-            <button id="btn" onclick="btnLogic()"></button>
+        <div id="counterContainer">
+            <p id="breadCounter">
+                Bread: 0
+            </p>
+        </div>
+        <div id="upgradesContainer">
+            <div id="upgrade1Container">
+                <p id="upgrade1Name"><strong>Bready Hands</strong></p>
+                <p id="upgrade1Level">Lv.1</p>
+                <button id="upgrade1Button">Buy | 10 Bread</button>
+            </div>
         </div>
     </body>
 </html>

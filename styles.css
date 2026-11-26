@@ -1,0 +1,108 @@
+/* animations */
+@keyframes breadButtonIdle {
+    0% { transform: rotate(0deg); }
+    17% { transform: rotate(5deg); }
+    33% { transform: rotate(5deg); }
+    67% { transform: rotate(-5deg); }
+    83% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+@keyframes buttonClick {
+    from { transform: scale(1.1); }
+    to { transform: scale(1); }
+}
+
+/* containers */
+#buttonContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: beige;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#counterContainer {
+    position: absolute;
+    border-radius: 5%;
+    border: 2px solid black;
+    background-color: #e0e0e0;
+    margin: 10px 10px;
+}
+
+#upgradesContainer {
+    position: absolute;
+    border-radius: 5%;
+    border: 2px solid black;
+    background-color: #f0f0f0;
+    margin: 180px 10px;
+    width: 225px;
+    height: 300px;
+}
+
+#upgrade1Container {
+    position: absolute;
+    border-radius: 5%;
+    border: 2px solid black;
+    background-color: #f0f0f0;
+    margin: 10px 10px;
+    width: 90%;
+    height: 20%;
+}
+
+/* buttons */
+#breadButton {
+    position: absolute;
+    border-radius: 10%;
+    width: 150px;
+    height: 150px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation: breadButtonIdle 2s linear infinite
+}
+
+#upgrade1Button {
+    position: absolute;
+    margin: 30px 10px;
+    width: 55%;
+}
+
+/* clicks */
+#breadButton:active {
+    animation:
+        breadButtonIdle 2s linear infinite,
+        buttonClick 1s 1;
+}
+
+/* images */
+#breadImage {
+    position: absolute;
+    width: 150px;
+    height: 150px
+}
+
+/* p */
+#breadCounter {
+    position: relative;
+    margin: 10px 20px;
+}
+
+#upgrade1Name {
+    position: absolute;
+    margin: 10px 10px;
+}
+
+#upgrade1Level {
+    position: absolute;
+    margin: 10px 140px;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}

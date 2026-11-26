@@ -3,7 +3,9 @@
     <head>
         <script type="module" src="../scripts/mainScript.js"></script>
         <script type="module" src="../scripts/globals.js"></script>
+        <script type="module" src="../scripts/intervals/automaticIncome.js"></script>
         <link rel="stylesheet" href="../css/mainStyles.css">
+        <link rel="stylesheet" href="../css/upgradeStyles.css">
         <title>BREAD CLICKER >:D</title>
     </head>
     <body>
@@ -16,19 +18,27 @@
             <p id="breadCounter">
                 0
             </p>
+            <p id="breadPerSecondCounter">
+                0 Bread per second
+            </p>
             <img id="breadIcon" src="../images/bread.png">
         </div>
         <div id="upgradesContainer">
             <p id="upgradesLabel"><strong>UPGRADES</strong></p>
             <div id="upgrade1Container">
-                <p id="upgrade1Name"><strong>Bready Hands</strong></p>
-                <p id="upgrade1Level">Lv.1</p>
-                <button id="upgrade1Button">Buy | 10 Bread</button>
+                <p id="upgrade1Name" class="upgradeName"><strong>Bready Hands</strong></p>
+                <p id="upgrade1Level" class="upgradeLevel">Lv.1</p>
+                <button id="upgrade1Button" class="upgradeButton">Buy | 10 Bread</button>
             </div>
             <div id="upgrade2Container">
-                <p id="upgrade2Name"><strong>Breadier Hands</strong></p>
-                <p id="upgrade2Level">Lv.1</p>
-                <button id="upgrade2Button">Buy | 175 Bread</button>
+                <p id="upgrade2Name" class="upgradeName"><strong>Breadier Hands</strong></p>
+                <p id="upgrade2Level" class="upgradeLevel">Lv.1</p>
+                <button id="upgrade2Button" class="upgradeButton">Buy | 175 Bread</button>
+            </div>
+            <div id="upgrade3Container">
+                <p id="upgrade3Name" class="upgradeName"><strong>Bread Worker</strong></p>
+                <p id="upgrade3Level" class="upgradeLevel">Lv.1</p>
+                <button id="upgrade3Button" class="upgradeButton">Buy | 440 Bread</button>
             </div>
         </div>
     </body>

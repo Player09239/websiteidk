@@ -1,0 +1,83 @@
+/* animations */
+@keyframes breadButtonIdle {
+    0% { transform: rotate(0deg); }
+    17% { transform: rotate(5deg); }
+    33% { transform: rotate(5deg); }
+    67% { transform: rotate(-5deg); }
+    83% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+@keyframes buttonClick {
+    from { transform: scale(1.1); }
+    to { transform: scale(1); }
+}
+
+#upgradesContainer {
+    position: absolute;
+    border-radius: 5%;
+    border: 2px solid black;
+    background-color: #f0f0f0;
+    margin: 180px 10px;
+    width: 225px;
+    height: 300px;
+}
+
+#upgrade1Container {
+    position: absolute;
+    border-radius: 5%;
+    border: 2px solid black;
+    background-color: #f0f0f0;
+    margin: 10px 10px;
+    width: 90%;
+    height: 20%;
+}
+
+#upgrade2Container {
+    position: absolute;
+    border-radius: 5%;
+    border: 2px solid black;
+    background-color: #f0f0f0;
+    margin: 80px 10px;
+    width: 90%;
+    height: 20%;
+}
+
+#upgrade3Container {
+    position: absolute;
+    border-radius: 5%;
+    border: 2px solid black;
+    background-color: #f0f0f0;
+    margin: 150px 10px;
+    width: 90%;
+    height: 20%;
+}
+
+.upgradeName {
+    position: absolute;
+    margin: 10px 10px;
+}
+
+.upgradeLevel {
+    position: absolute;
+    margin: 10px 140px;
+}
+
+.upgradeButton {
+    position: absolute;
+    margin: 31px 10px;
+    width: 55%;
+    border: black 2px solid; 
+    border-radius: 5%;
+}
+
+.upgradeButton:active {
+    animation:
+        buttonClick 1s 1;
+}
+
+#upgradesLabel {
+    position: absolute;
+    bottom: 96%;
+    left: 5%;
+    font-size: 20px;
+}

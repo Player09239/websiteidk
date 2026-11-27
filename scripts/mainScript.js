@@ -149,7 +149,7 @@ window.onload=function(){
             upgrade4Level++
 
             breadCounter.textContent = NumberHelper.Format(bread)
-            upgrade4LevelUI.textContent = `Lv. ${upgrade3Level}`
+            upgrade4LevelUI.textContent = `Lv. ${upgrade4Level}`
 
             upgrade4Cost = Math.floor(upgrade4Cost * UPGRADECOSTMULTI)
 

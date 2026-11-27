@@ -1,9 +1,6 @@
 import NumberHelper from "./utils/number.js"
 import Data from "./utils/data.js"
-
-let upgradeCostMulti = 1.15
-
-let upgrade2BreadMulti = 3
+import { UPGRADE1BREADAMOUNT, UPGRADE2BREADAMOUNT, UPGRADE3AUTOBREADAMOUNT, UPGRADE4AUTOBREADAMOUNT, UPGRADECOSTMULTI } from "./constants.js"
 
 window.onload=function(){
     Data.Load()
@@ -15,6 +12,9 @@ window.onload=function(){
     let upgrade2Button = document.getElementById('upgrade2Button')
     let upgrade3LevelUI = document.getElementById('upgrade3Level')
     let upgrade3Button = document.getElementById('upgrade3Button')
+    let upgrade4LevelUI = document.getElementById('upgrade4Level')
+    let upgrade4Button = document.getElementById('upgrade4Button')
+
     let breadPerSecondCounter = document.getElementById('breadPerSecondCounter')
 
     let combo1 = document.getElementById('combo1')
@@ -30,6 +30,8 @@ window.onload=function(){
     upgrade2Button.textContent = `Buy | ${NumberHelper.Format(upgrade2Cost)} Bread`
     upgrade3LevelUI.textContent = `Lv. ${window.upgrade3Level}`
     upgrade3Button.textContent = `Buy | ${NumberHelper.Format(upgrade3Cost)} Bread`
+    upgrade4LevelUI.textContent = `Lv. ${window.upgrade4Level}`
+    upgrade4Button.textContent = `Buy | ${NumberHelper.Format(upgrade4Cost)} Bread`
 
     breadPerSecondCounter.textContent = `${upgrade3Level - 1} Bread per second`
 
@@ -76,7 +78,12 @@ window.onload=function(){
     showCombo()
 
     breadBtn.addEventListener("click", () => {
-        bread += Math.floor((upgrade1Level + (3 * (upgrade2Level - 1))) * (combo + 1)) // 1 bread per click for upgrade1
+        // bread += Math.floor((upgrade1Level + (3 * (upgrade2Level - 1))) * (combo + 1)) // 1 bread per click for upgrade1
+        bread += Math.floor(
+            ((upgrade1Level * UPGRADE1BREADAMOUNT) +
+            ((upgrade2Level - 1) * UPGRADE2BREADAMOUNT)) *
+            (combo + 1)
+        )
         breadCounter.textContent = NumberHelper.Format(bread)
         combo += 0.1
         if (combo > 5) {
@@ -95,12 +102,12 @@ window.onload=function(){
             breadCounter.textContent = NumberHelper.Format(bread)
             upgrade1LevelUI.textContent = `Lv. ${upgrade1Level}`
 
-            upgrade1Cost = Math.floor(upgrade1Cost * upgradeCostMulti)
+            upgrade1Cost = Math.floor(upgrade1Cost * UPGRADECOSTMULTI)
 
             upgrade1Button.textContent = `Buy | ${NumberHelper.Format(upgrade1Cost)} Bread`
 
             Data.Save()
-        }
+        } else alert(`You don't have enough bread! (Need ${upgrade1Cost - bread} more bread)`)
     })
 
     upgrade2Button.addEventListener("click", () => {
@@ -111,12 +118,12 @@ window.onload=function(){
             breadCounter.textContent = NumberHelper.Format(bread)
             upgrade2LevelUI.textContent = `Lv. ${upgrade2Level}`
 
-            upgrade2Cost = Math.floor(upgrade2Cost * upgradeCostMulti)
+            upgrade2Cost = Math.floor(upgrade2Cost * UPGRADECOSTMULTI)
 
             upgrade2Button.textContent = `Buy | ${NumberHelper.Format(upgrade2Cost)} Bread`
 
             Data.Save()
-        }
+        } else alert(`You don't have enough bread! (Need ${upgrade2Cost - bread} more bread)`)
     })
 
     upgrade3Button.addEventListener("click", () => {
@@ -127,13 +134,30 @@ window.onload=function(){
             breadCounter.textContent = NumberHelper.Format(bread)
             upgrade3LevelUI.textContent = `Lv. ${upgrade3Level}`
 
-            upgrade3Cost = Math.floor(upgrade3Cost * upgradeCostMulti)
+            upgrade3Cost = Math.floor(upgrade3Cost * UPGRADECOSTMULTI)
 
-            breadPerSecondCounter.textContent = `${upgrade3Level - 1} Bread per second`
+            breadPerSecondCounter.textContent = `${((upgrade3Level - 1) * UPGRADE3AUTOBREADAMOUNT) + ((upgrade4Level - 1) * UPGRADE4AUTOBREADAMOUNT)} Bread per second`
             upgrade3Button.textContent = `Buy | ${NumberHelper.Format(upgrade3Cost)} Bread`
 
             Data.Save()
-        }
+        } else alert(`You don't have enough bread! (Need ${upgrade3Cost - bread} more bread)`)
+    })
+
+    upgrade4Button.addEventListener("click", () => {
+        if (bread >= upgrade4Cost) {
+            bread -= upgrade4Cost
+            upgrade4Level++
+
+            breadCounter.textContent = NumberHelper.Format(bread)
+            upgrade4LevelUI.textContent = `Lv. ${upgrade3Level}`
+
+            upgrade4Cost = Math.floor(upgrade4Cost * UPGRADECOSTMULTI)
+
+            breadPerSecondCounter.textContent = `${((upgrade3Level - 1) * UPGRADE3AUTOBREADAMOUNT) + ((upgrade4Level - 1) * UPGRADE4AUTOBREADAMOUNT)} Bread per second`
+            upgrade4Button.textContent = `Buy | ${NumberHelper.Format(upgrade4Cost)} Bread`
+
+            Data.Save()
+        } else alert(`You don't have enough bread! (Need ${upgrade4Cost - bread} more bread)`)
     })
 
 }

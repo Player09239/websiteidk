@@ -54,6 +54,16 @@
     height: 20%;
 }
 
+#upgrade4Container {
+    position: absolute;
+    border-radius: 5%;
+    border: 2px solid black;
+    background-color: #f0f0f0;
+    margin: 250px 10px;
+    width: 90%;
+    height: 20%;
+}
+
 .upgradeName {
     position: absolute;
     margin: 10px 10px;

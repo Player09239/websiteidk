@@ -10,6 +10,10 @@
     align-items: center;
 }
 
+#breadIcon {
+    animation: breadButtonIdle 4s linear infinite
+}
+
 @keyframes buttonClick {
     from { transform: scale(1.1); }
     to { transform: scale(1); }

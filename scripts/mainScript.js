@@ -33,8 +33,6 @@ window.onload=function(){
     upgrade4LevelUI.textContent = `Lv. ${window.upgrade4Level}`
     upgrade4Button.textContent = `Buy | ${NumberHelper.Format(upgrade4Cost)} Bread`
 
-    breadPerSecondCounter.textContent = `${upgrade3Level - 1} Bread per second`
-
     function showCombo() {
         if (combo >= 5) {
             combo1.style.opacity = 1
@@ -74,6 +72,12 @@ window.onload=function(){
             combo5.style.opacity = .5
         }
     }
+
+    function getTotalAutoAmount() {
+        return NumberHelper.Format(((upgrade3Level - 1) * UPGRADE3AUTOBREADAMOUNT) + ((upgrade4Level - 1) * UPGRADE4AUTOBREADAMOUNT))
+    }
+
+    breadPerSecondCounter.textContent = `${getTotalAutoAmount()} Bread per second`
 
     showCombo()
 
@@ -136,7 +140,7 @@ window.onload=function(){
 
             upgrade3Cost = Math.floor(upgrade3Cost * UPGRADECOSTMULTI)
 
-            breadPerSecondCounter.textContent = `${((upgrade3Level - 1) * UPGRADE3AUTOBREADAMOUNT) + ((upgrade4Level - 1) * UPGRADE4AUTOBREADAMOUNT)} Bread per second`
+            breadPerSecondCounter.textContent = `${getTotalAutoAmount()} Bread per second`
             upgrade3Button.textContent = `Buy | ${NumberHelper.Format(upgrade3Cost)} Bread`
 
             Data.Save()
@@ -153,7 +157,7 @@ window.onload=function(){
 
             upgrade4Cost = Math.floor(upgrade4Cost * UPGRADECOSTMULTI)
 
-            breadPerSecondCounter.textContent = `${((upgrade3Level - 1) * UPGRADE3AUTOBREADAMOUNT) + ((upgrade4Level - 1) * UPGRADE4AUTOBREADAMOUNT)} Bread per second`
+            breadPerSecondCounter.textContent = `${getTotalAutoAmount()} Bread per second`
             upgrade4Button.textContent = `Buy | ${NumberHelper.Format(upgrade4Cost)} Bread`
 
             Data.Save()

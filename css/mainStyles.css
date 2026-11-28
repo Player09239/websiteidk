@@ -66,6 +66,11 @@
     height: 150px
 }
 
+#breadUpgradeContainerImage {
+    object-fit: contain;
+    position: absolute;
+}
+
 #breadIcon {
     position: absolute;
     width: 35px;
